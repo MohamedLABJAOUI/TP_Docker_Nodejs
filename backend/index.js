@@ -5,7 +5,6 @@ const { Pool } = require('pg');
 const app = express();
 const port = 3000;
 
-// Connexion à PostgreSQL avec les variables d’environnement
 const pool = new Pool({
   user: process.env.DB_USER,
   host: process.env.DB_HOST,
@@ -14,7 +13,6 @@ const pool = new Pool({
   port: 5432,
 });
 
-// Route pour récupérer les utilisateurs
 app.get('/users', async (req, res) => {
   try {
     const result = await pool.query('SELECT * FROM users');
